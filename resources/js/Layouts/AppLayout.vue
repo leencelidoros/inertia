@@ -51,7 +51,7 @@ const logout = () => {
                     <Dropdown align="right" width="">
                         <template #trigger>
                             <span  class="inline-flex rounded-md">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Select
                             </button>
                             </span>

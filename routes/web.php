@@ -40,4 +40,8 @@ Route::middleware([
     Route::get('/pricing', function () {
         return Inertia::render('Pricing');
     })->name('pricing');
+    Route::get('/Event/Show', function () {
+        return Inertia::render('Event/Show');
+    })->name('Show');
 });
+Route::inertia('/about', 'About');
