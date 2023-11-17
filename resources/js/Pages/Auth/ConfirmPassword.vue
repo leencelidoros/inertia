@@ -45,7 +45,7 @@ const submit = () => {
                     ref="passwordInput"
                     v-model="form.password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="form-control"
                     required
                     autocomplete="current-password"
                     autofocus
