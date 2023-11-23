@@ -1,14 +1,18 @@
 <script>
-import SuccessButton from '../Components/SuccessButton.vue';
-import DropdownLink from '../Components/DropdownLink.vue';
-import Dropdown from '../Components/Dropdown.vue';
+import SuccessButton from '@/Components/SuccessButton.vue';
+import DropdownLink from '@/Components/DropdownLink.vue';
+import Dropdown from '@/Components/Dropdown.vue';
 
 export default
   {
-    components: { SuccessButton }
+    components: { SuccessButton,
+                  DropdownLink,
+                  Dropdown
+     }
 }
 </script>
 <template>
+<div class="container">    
 <nav class="navbar bg-primary" data-bs-theme="light">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -19,7 +23,6 @@ export default
         <li class="nav-item">
           <a class="nav-link" href="/about">About</a>
         </li>
-        <li>
                     <Dropdown align="right" width="">
                         <template #trigger>
                             <span  class="inline-flex rounded-md">
@@ -36,17 +39,13 @@ export default
                             </ul>
                         </template>
                     </Dropdown>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <SuccessButton>Search</SuccessButton>
       </form>
-      <li>
-      <Dropdown align="right" width="48">
+      <ul>
+      <Dropdown align="right" width="">
                         <template #trigger>
                             <button v-if="$page.props.jetstream.managesProfilePhotos" class="btn btn-secondary">
                                 <img class="rounded float-start" :src="$page.props.auth.user.profile_photo_url" :alt="$page.props.auth.user.name">
@@ -83,8 +82,9 @@ export default
                             </div>
                         </template>
                     </Dropdown>
-                </li>
+                </ul>
     </div>
   </div>
 </nav>
+</div>
 </template>
