@@ -8,7 +8,9 @@ defineProps({
 </script>
 
 <template>
-    <button :type="type" class="btn btn-primary text-center ">
+    <button :type="type" class="btn btn-outline-success ">
         <slot />
     </button>
 </template>
+
+

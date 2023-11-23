@@ -8,6 +8,7 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import TopHeader from '@/Components/TopHeader.vue';
 
 defineProps({
     title: String,
@@ -39,31 +40,7 @@ const logout = () => {
                 <div class="container-fluid">
 
                     <!-- Navigation Links -->
-                    <NavLink :href="route('dashboard')" :active="route().current('dashboard')" class="me-3">
-                        Dashboard
-                    </NavLink>
-                    <NavLink :href="route('features')" :active="route().current('features')" class="me-3">
-                        Features
-                    </NavLink>
-                    <NavLink :href="route('pricing')" :active="route().current('pricing')" class="me-3">
-                        Pricing
-                    </NavLink>
-                    <Dropdown align="right" width="">
-                        <template #trigger>
-                            <span  class="inline-flex rounded-md">
-                            <button class="btn btn secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Select
-                            </button>
-                            </span>
-                        </template>
-                        <template #content>
-                            <ul>
-                            <li><DropdownLink>Action</DropdownLink></li>
-                            <li><DropdownLink>Another action</DropdownLink></li>
-                            <li><DropdownLink>Something else here</DropdownLink></li>
-                            </ul>
-                        </template>
-                    </Dropdown>
+                 <TopHeader></TopHeader>
 
                     <Dropdown align="right" width="48">
                         <template #trigger>
