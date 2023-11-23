@@ -1,15 +1,37 @@
 <script>
-import SuccessButton from '@/Components/SuccessButton.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import Dropdown from '@/Components/Dropdown.vue';
+import SecondaryButton from '@/Components/SecondaryButton.vue';
 
-export default
-  {
-    components: { SuccessButton,
-                  DropdownLink,
-                  Dropdown
-     }
-}
+export default {
+    components:{ SecondaryButton,Dropdown,DropdownLink},
+  props: {
+    jobs: Array,
+    displayJobs: Array,
+    currentPage: Number,
+  },
+  data() {
+    return {
+      searchQuery: '',
+      searchResults: [],
+    };
+  },
+  methods: {
+    handleSearch() {
+  const query = this.searchQuery.trim().toLowerCase();
+
+  if (query === '') {
+    this.displayJobs = this.jobs;
+    this.currentPage = 1;
+    return;
+  }
+
+  this.displayJobs = this.jobs.filter(job => job.name.toLowerCase().includes(query));
+  this.currentPage = 1;
+},
+
+  },
+};
 </script>
 <template>
 <div class="container">    
@@ -40,10 +62,11 @@ export default
                         </template>
                     </Dropdown>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <SuccessButton>Search</SuccessButton>
-      </form>
+      <form class="d-flex" @submit.prevent="handleSearch" role="search">
+            <input v-model="searchQuery" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <SecondaryButton type="submit">Search</SecondaryButton>
+        </form>
+      
       <ul>
       <Dropdown align="right" width="">
                         <template #trigger>

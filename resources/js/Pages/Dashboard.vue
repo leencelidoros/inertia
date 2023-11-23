@@ -23,6 +23,7 @@
   import AppLayout from '@/Layouts/AppLayout.vue';
   import JobCard from '@/Components/JobCard.vue';
   import Pagination from '@/Components/Pagination.vue';
+
   
   const fetchData = async () => {
     try {
@@ -36,26 +37,24 @@
   };
   
   const displayJobs = ref([]);
-  const jobs = ref([]);
-  const currentPage = ref(1);
-  const rows = ref(1);
-  const perPage = ref(3);
-  
-  onMounted(() => {
-    fetchData();
-  });
-  
-  const slicedJobs = computed(() => {
-    const start = (currentPage.value - 1) * perPage.value;
-    const end = start + perPage.value;
-    return displayJobs.value.slice(start, end);
-  });
-  
-  const totalPages = computed(() => Math.ceil(jobs.value.length / perPage.value));
-  
-  const handlePageChange = (page) => {
-    currentPage.value = page;
-  };
-  
-  </script>
-  
+const jobs = ref([]);
+const currentPage = ref(1);
+const rows = ref(1);
+const perPage = ref(3);
+
+onMounted(() => {
+  fetchData();
+});
+
+const slicedJobs = computed(() => {
+  const start = (currentPage.value - 1) * perPage.value;
+  const end = start + perPage.value;
+  return displayJobs.value.slice(start, end);
+});
+
+const totalPages = computed(() => Math.ceil(jobs.value.length / perPage.value));
+
+const handlePageChange = (page) => {
+  currentPage.value = page;
+};
+</script>
